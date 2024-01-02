@@ -4,12 +4,12 @@ from langchain.llms import CTransformers
 
   
 #Function to get the response back
-def getLLMResponse(context, question):
+def getLLMResponse(constraint, question):
 
     llm = CTransformers(model='models/llama-2-7b-chat.ggmlv3.q8_0.bin',     #https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
                     model_type='llama',
                     config={'max_new_tokens': 256,
-                            'temperature': 0.01})
+                            'temperature': 0.07})
     
     
     # Wrapper for Llama-2-7B-Chat, Running Llama 2 on CPU
@@ -25,16 +25,16 @@ def getLLMResponse(context, question):
     
     #Template for building the PROMPT
     template = """
-    Given the following context:\n{context}\n\nExplain the concept of {question}.
+    Given the following constraint:\n{constraint}\n\nExplain the concept of {question}.
     """
 
     #Creating the final PROMPT
     prompt = PromptTemplate(
-    input_variables=["context","question"],
+    input_variables=["constraint","question"],
     template=template)
 
      #Generating the response using LLM
-    response=llm(prompt.format(context=context,question=question))
+    response=llm(prompt.format(constraint=constraint,question=question))
     print(response)
 
     return response

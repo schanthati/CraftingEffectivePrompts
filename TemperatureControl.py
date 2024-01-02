@@ -4,9 +4,6 @@ from langchain.llms import CTransformers
 import os
 
 
-# Set the OpenAI API key
-os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY"
-
 def temperature_control_prompt(question, temperature=0.2):
    
     prompt = f"Explain the concept of {question}."

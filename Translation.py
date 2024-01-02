@@ -45,7 +45,7 @@ st.set_page_config(page_title="Translation from English to another language",
                     page_icon='📧',
                     layout='centered',
                     initial_sidebar_state='collapsed')
-st.header("Translate now 📧")
+st.header("Translate now ")
 
 form_input = st.text_area('Enter the sentence in English', height=50)
 

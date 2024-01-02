@@ -14,15 +14,10 @@ def getLLMResponse(context, question):
     
     # Wrapper for Llama-2-7B-Chat, Running Llama 2 on CPU
 
-    #Quantization is reducing model precision by converting weights from 16-bit floats to 8-bit integers, 
-    #enabling efficient deployment on resource-limited devices, reducing model size, and maintaining performance.
-
     #C Transformers offers support for various open-source models, 
     #among them popular ones like Llama, GPT4All-J, MPT, and Falcon.
     #C Transformers is the Python library that provides bindings for transformer models implemented in C/C++ using the GGML library
 
-
-    
     #Template for building the PROMPT
     template = """
     Given the following context:\n{context}\n\nExplain the concept of {question}.
